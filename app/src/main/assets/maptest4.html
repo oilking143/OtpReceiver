@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+      html,body {
+        padding: 0;
+        margin: 0;
+      }
+      #myMap {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+      <div id="myMap"></div>
+      <script>
+          // 設定地圖中心點與放大級別
+          
+      
+      function createMarker2(centerPoint, markers) {
+          
+          const map = L.map("myMap", {
+              center: centerPoint,//[25.041662859503557, 121.5437776679521],
+              zoom: 14
+          });
+      // 載入圖資
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>         contributors'
+      }).addTo(map);
+      
+          for (i = 0; i < markers.length; i++) {
+              L.marker(markers[i]).addTo(map);
+          }
+          
+          var polyline = L.polyline(markers, {color: 'red'}).addTo(map);
+          
+          return "show map!"
+      }      
+      
+          </script>
+  </body>
+
+</html>
+

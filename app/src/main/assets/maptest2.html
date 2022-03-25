@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+      html,body {
+        padding: 0;
+        margin: 0;
+      }
+      #myMap {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myMap"></div>
+    <script>
+      // 設定地圖中心點與放大級別
+      const map = L.map("myMap", {
+        center: [25.041662859503557, 121.5437776679521],
+        zoom: 13
+      });
+      // 載入圖資
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>         contributors'
+      }).addTo(map);
+        // 彈出視窗
+        // L.marker([25.070923434683767, 121.5523654929407])
+        // .addTo(map)
+        // .bindPopup("aaaaa")
+        // .openPopup();
+
+        var markers = [[25.067426185279952, 121.55215103472267], [25.041662859503557, 121.5437776679521], [25.00010396118553, 121.58172620121954]]
+        var markerName = ["松山機場", "忠孝復興捷運站", "木柵動物園"]
+        for (i = 0; i < markers.length; i++) {
+            L.marker(markers[i]).addTo(map);
+        }
+
+        var latlngs = [[25.067426185279952, 121.55215103472267], [25.041662859503557, 121.5437776679521], [25.00010396118553, 121.58172620121954]]
+        var polyline = L.polyline(latlngs, {color: 'blue'}).addTo(map);
+
+      </script>
+  </body>
+
+</html>
+
