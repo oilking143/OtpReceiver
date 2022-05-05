@@ -34,6 +34,7 @@ import androidx.fragment.app.FragmentActivity
 
 
 class MainActivity : AppCompatActivity() {
+    val devtest="testtttt"
     val REQ_CODE_CONTACT = 2
     val mediaType = "application/json; charset=utf-8".toMediaType()
     val client = OkHttpClient()
